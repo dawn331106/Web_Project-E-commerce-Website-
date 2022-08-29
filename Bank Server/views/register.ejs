@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Registration Form</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="./css/style1.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper" style="background-image: url('images/bankbg1.jpg');">
+			<div class="inner">
+
+				<form action="/register" method="POST">
+					<h3>Bank Registration Form</h3>
+					<div class="form-group">
+						<div class="form-wrapper">
+							<label for="">Full name:</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-account-o"></i>
+								<input type="text" name="fullName" class="form-control">
+							</div>
+						</div>
+						<div class="form-wrapper">
+							<label for="">Email:</label>
+							<div class="form-holder">
+								<i style="font-style: normal; font-size: 15px;">@</i>
+								<input type="text" name="email" class="form-control">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-wrapper">
+							<label for="">Secret Key:</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-lock-outline"></i>
+								<input type="password" name="secretKey" class="form-control" placeholder="********">
+							</div>
+						</div>
+						<!-- <div class="form-wrapper">
+							<label for="">Repeat Password:</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-lock-outline"></i>
+								<input type="password" class="form-control" placeholder="********">
+							</div>
+						</div> -->
+					</div>
+					<div class="form-group">
+						<div class="form-wrapper">
+							<label for="">Address:</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-account-o"></i>
+								<input type="text" name="adress" class="form-control">
+							</div>
+						</div>
+						<div class="form-wrapper">
+							<label for="">Amount:</label>
+							<div class="form-holder">
+								<i style="font-style: normal; font-size: 15px;"></i>
+								<input type="number" name="amount" class="form-control">
+							</div>
+						</div>
+					</div>
+					<div class="reg-form-end">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"> By ticking,you are confirming that you have read,understood and agree to terms and conditions.
+								<span class="checkmark"></span>
+							</label>
+						</div>
+						<div class="button-holder">
+							<button type="submit"> Register</button> 
+						</div>
+						
+					</div>
+					<!-- <h2 style="text-align: center;">Already have an account!  <a href="/login">Login Now!</a></h2> -->
+				</form>
+			</div>
+		</div>
+		
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
