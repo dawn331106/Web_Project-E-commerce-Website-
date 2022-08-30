@@ -5,32 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>Purchase history</title>
 </head>
 
 <style>
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
-    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
     font-family: sans-serif;
-}
-
-.container {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.button {
-    background-color: white;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 20px;
-    cursor: pointer;
 }
 
 /* Style For Navigation */
@@ -60,14 +42,8 @@ body {
     text-align: center;
     padding-top: 40px;
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-    background-size: cover;
+    /* background-size: cover; */
     background-position: top;
-}
-
-.profile-photo {
-    width: 50%;
-    border-radius: 50%;
-    border: solid 3px white;
 }
 
 .profile-name {
@@ -77,63 +53,40 @@ body {
     padding-bottom: 20px;
 }
 
-.profile-detail {
-    color: #fff;
-    font-size: 14px;
-    line-height: 25px;
-}
-
-.profile-follow {
-    background-color: #39b85d;
-    color: white;
-    transition: all 0.3s;
-    font-size: 15px;
-}
-
-.profile-follow:hover {
-    background-color: black;
-    color: #4c99b8;
-    transition: all 0.3s;
-}
-
-/* Style For Detail Section */
-.detail-section {
-    float: left;
-    width: 75%;
-    padding-top: 30px;
-}
-
-/* Card Style */
-.card {
-    background-color: white;
-    line-height: 25px;
-    margin-bottom: 15px;
-}
-
-.card-title {
-    font-weight: bold;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    color: #2d2d2d;
-    /* border-bottom: solid 2px #dbdbdb; */
-}
-
-.card-body {
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
 .empty-transaction-container{
-    background-color: red; width: 100%; text-align: center;
+    /* background-color: red; */
+    width: 100%; text-align: center;
     height: 20em;
     margin-top: 5em;
     float: center;
     align-content: center;   
 }
+
 .empty-transaction-image{
+    background-image: url('img/emptyList.jpg');
+    height: 100px;
+    width: 300px;
     /* background-color: #01a02e; */
 }
-.empty-transaction-desc{
-    background-color: #4c99b8;
+
+
+.empty-desc-first{
+    font-size: 60px;
+    color: blue
+
+}
+.empty-desc-second{
+    color: blue;
+font-family: 'Archivo', sans-serif;
+font-family: 'Assistant', sans-serif;
+font-size: 40px;
+}
+.btn-buy-now{
+    background-color: #01a02e;
+    font-size: 25px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 </style>
@@ -141,14 +94,14 @@ body {
 
 <body>
 <!-- Navbar -->
-<div class="nav">
-  <div class="container">
-    <form action="/userHome" method="POST">
-      <input type="hidden" name="userName" value="<%=user.userName%>">
-      <a href=""> <button type="submit"> Home </button> </a>
-    </form>
-  </div>
-</div>
+    <div class="nav">
+        <div class="container">
+            <form action="/userHome" method="POST">
+                <input type="hidden" name="userName" value="<%= user.userName %>">
+                <a href=""> <button type="submit"> Home </button> </a>
+            </form>
+        </div>
+    </div>
 
 <!-- Content -->
 <div class="content">
@@ -157,25 +110,35 @@ body {
   <div class="profile-section">
     <div class="container">
       <!-- <img src="" class="profile-photo"> -->
-      <p class="profile-name">Transaction List</p>
+      <p class="profile-name">Transaction History List</p>
       <p class="profile-detail">
     </p>
     </div>
   </div>
+</div>
 
 <% var i = 0; %>
 <% if(userTran.length == 0) { %>
 
+    <!-- <img src="img/emptyList.jpg" alt=""> -->
+    
+
 <div class="empty-transaction-container">
     <div class="empty-transaction-image">
-        <img src="../img/emptyListImg.jpg" height="300px" width="1000px" alt="">
+        <!-- <img src="" alt=""> -->
     </div>
     <div class="empty-transaction-desc">
-
+            <p class="empty-desc-first"> Opsss! </p><br>
+           <p class="empty-desc-second"> Looks like, You haven't bought any products yet...! </p>
+        <form action="/userHome" method="POST">
+            <input type="hidden" name="userName" value="<%= user.userName %>">
+            <a href=""> <button class="btn-buy-now" type="submit"> Buy Now </button> </a>
+        </form>
     </div>
-</div>
+
+</div> 
     
- <% } else { %>   
+ <% } else { %> 
 <table style="width: 60%; padding-top: 2em; margin-left: 25em ;">
 
             <tr style="color: #01a02e;">
@@ -198,8 +161,8 @@ body {
 
 
 </table>
-<% } %>
-    </div>
+<% } %> 
+    
 
 </body>
 </html>

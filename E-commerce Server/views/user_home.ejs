@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@100;500&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- <link rel="stylesheet" href="./css/style1.css"> -->
-    <title>Shoes</title>
+     <link rel="stylesheet" href="./css/style.css"> 
+    <!-- <link rel="stylesheet" href="./css/style1.css">  -->
+    <title>E-Shop</title>
      <!--====== Design by foolishdeveloper.com =====-->
   
   
-     <title>Automatic Popup</title>
+     <!-- <title>Homepage</title> -->
      <!--Google Fonts-->
      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
      <!--Stylesheets-->
@@ -27,22 +27,27 @@
      background-color: #0855ae;
  } */
  .popup{
-     background-color: darkgray;
-     padding: 30px 40px;
+    background:linear-gradient(140deg, #151a20 0%, #1d9300 100%);;
      position: absolute;
      transform: translate(-50%,-50%);
      left: 50%;
      top: 50%;
      border-radius: 8px;
      font-family: "Poppins",sans-serif;
+     max-width: 600px;
+     min-width: 65vh;
+     height: 370px;
+     margin: auto;
      display: none; 
      text-align: center;
-     /* box-shadow: -2px 0 4px hsl(0 4% 15% 10%); */
  }
 
  .popup button{
      padding-top: 2px;
-     border-radius: 1px;
+     border-radius: 5px;
+     background-color: black;
+     color: white;
+     font-size: large;
  }
  .buttoncross{
      display: block;
@@ -67,20 +72,6 @@
      margin: 20px 0;
      line-height: 25px;
  }
- /* a{
-     display: block;
-     width: 150px;
-     position: relative;
-     margin: 10px auto;
-     text-align: center;
-     background-color: #0f72e5;
-         border-radius: 20px;
-     color: #ffffff;
-     text-decoration: none;
-     padding: 8px 0;
- } */
-
- /*-------------------------------------------------------------------*/
  .waitmessage{
      background-color:orangered;
      padding: 30px 40px;
@@ -99,7 +90,7 @@
      </style>
 </head>
 <body>
-    <!-- _____________________________________________________________________________________________________________ -->
+    <!-- ___________________________________________________________________________________________________________ -->
     <nav>
         <div class="navTop">
             <div class="navItem">
@@ -135,9 +126,13 @@
                 <% var isAdmin = details.isAdmin %>
                 <% if(isAdmin == true){ %>
                 <div class="sideNav">
+                    <!-- <form action="/dashboard" method="POST">
+                        <input type="hidden" name="userName" value="<%=details.userName %>">
+                        <button type="submit" style="text-decoration:None;">Dashboard</button>
+                    </form> -->
                     <a href="/dashboard" style="text-decoration: none;">Dashboard</a> 
                 </div>  
-                <% } %> 
+                <% } %>
                 <div class="sideNav">
 				     <a style="font-size: 30px;" href="/profile/<%= details.userName %>"><%=details.userName; %></a>
                     <!-- <a href="/register">Register</a> -->
@@ -233,29 +228,29 @@
     <div class="popup">
         <button id="close" class="buttoncross">&times;</button>
 
-        <div class="inner">
+        <div>
 
             <form action="/bankinfo" method="POST">
-                <h3>Bank Information</h3>
+                <h3 style="color: white; font-size:30px">Bank Information</h3>
                 <input type="hidden" name="userName" value="<%=details.userName %>">
                 <input type="hidden" name="popup" value="false">
                 <div class="form-group">
-                    <div class="form-wrapper">
-                        <label for="">AccountId:</label>
+                    <div style="margin-top: 15px;">
+                        <label style="color: white; font-size: larger;" for="">AccountId:</label>
                         <div class="form-holder">
                             <i class="zmdi zmdi-account-o"></i>
-                            <input type="text" name="accountId" class="form-control">
+                            <input style="font-size: 20px; margin-top: 5px;" type="text" name="accountId" class="form-control">
                         </div>
                     </div>
-                    <div class="form-wrapper">
-                        <label for="">Secret Key:</label>
-                        <div class="form-holder">
+                    <div style="margin-top: 10px;">
+                        <label style="color: white; font-size: larger;" for="">Secret Key:</label>
+                        <div class="form-holder" style="font-size: larger;">
                             <i class="zmdi zmdi-lock-outline"></i>
-                            <input type="password" name="secretKey" class="form-control" placeholder="********">
+                            <input style="font-size: 20px; margin-top: 5px;" type="password" name="secretKey" class="form-control" placeholder="******">
                         </div>
                     </div>
                 </div>	
-                <div class="form-end">
+                <div class="form-end" style="margin-top: 30px;">
                     <div class="button-holder">
                         <button type="submit" id="add">Submit</button>
                     </div>
@@ -308,46 +303,7 @@
             <span class="featureDesc">Keep in touch via email and support system.</span>
         </div>
     </div>
-    <!-- <div class="product" id="product">
-        <img src="./img/air.png" alt="" class="productImg">
-        <div class="productDetails">
-            <h1 class="productTitle">Ganja</h1>
-            <h2 class="productPrice">200/- BDT</h2>
-            <p class="productDesc">Bangladeshi Maal,Na Kinle Miss!          </p>
-            <div class="colors">
-                <div class="color"></div>
-                <div class="color"></div>
-            </div>
-            <div class="sizes">
-                <div class="size">42</div>
-                <div class="size">43</div>
-                <div class="size">44</div>
-            </div>
-            <button class="productButton">BUY NOW!</button>
-        </div>
-        <div class="payment">
-            <h1 class="payTitle">Personal Information</h1>
-            <label>Name and Surname</label>
-            <input type="text" placeholder="John Doe" class="payInput">
-            <label>Phone Number</label>
-            <input type="text" placeholder="+1 234 5678" class="payInput">
-            <label>Address</label>
-            <input type="text" placeholder="Elton St 21 22-145" class="payInput">
-            <h1 class="payTitle">Card Information</h1>
-            <div class="cardIcons">
-                <img src="./img/bkash.png" width="80" alt="" class="cardIcon">
-                <img src="./img/rocket.png" alt=""height="40" width="60" class="cardIcon">
-            </div>
-            <input type="password" class="payInput" placeholder="Card Number">
-            <div class="cardInfo">
-                <input type="text" placeholder="mm" class="payInput sm">
-                <input type="text" placeholder="yyy" class="payInput sm">
-                <input type="text" placeholder="cvv" class="payInput sm">
-            </div>
-            <button class="payButton">Checkout!</button>
-            <span class="close">X</span>
-        </div>
-    </div> -->
+
     <footer>
         <div class="footerLeft">
             <div class="footerMenu">
