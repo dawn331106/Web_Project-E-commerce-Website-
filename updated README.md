@@ -2,11 +2,11 @@
 
 ## Overview
 A group project of fully functional E-commerce website. The whole project is connected with 3 different organizations with 3 different major API. Like: <br/>
-### An e-commerce platform: <br/>
+### An e-commerce platform:
 Contains any amount of products of three different categories (e.g. Blazer, Pant, Shoe). <br/>
-### A Bank Server: <br/>
+### A Bank Server:
 To facilitate all transactions of the users to buy any product. <br/>
-### A Supplier: <br/>
+### A Supplier:
 To supply all the necessary products ordered by the users. Here, the admin submits a token of the ordered products to the supplier with the unique transaction number provided by the bank.
 
 
